@@ -1,0 +1,112 @@
+body {
+  background-color: white;
+  color: #333;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin: 8px;
+  text-align: center;
+}
+
+time {
+  font-style: italic;
+}
+
+main {
+  background-color: #ececec;
+  border-radius: 5px;
+  display: block; /* for IE support */
+  margin: 0;
+}
+
+.head {
+  padding: 20px;
+}
+
+.head > h1 {
+  font-size: 2rem;
+  margin: 10px 0 20px 0;
+}
+
+.head > p {
+  margin: 0;
+}
+
+figure {
+  background-color: white;
+  margin: 0 24px;
+  padding: 24px;
+  padding-bottom: 16px;
+}
+
+figure > img {
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+}
+
+figcaption {
+  font-size: .8rem;
+  padding-top: 16px;
+}
+
+.biography {
+  max-width: 600px;
+  margin: auto;
+  padding: 24px;
+  padding-bottom: 8px;
+}
+
+.biography > h1 {
+  font-size: 1.2rem;
+}
+
+ul {
+  padding: 8px 24px;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+blockquote {
+  background-color: white;
+  font-size: 1.1rem;
+  margin: 0 24px;
+  padding: 16px;
+}
+
+q {
+  display: block;
+  margin-bottom: 16px;
+}
+
+footer > p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  padding: 16px;
+  padding-bottom: 24px;
+}
+
+@media (min-width: 1200px) {
+  .head > h1 {
+    font-size: 3rem;
+  }
+
+  .head > p {
+    font-size: 1.5rem;
+  }
+
+  figcaption {
+    font-size: 1rem;
+  }
+
+  .biography > h1 {
+    font-size: 1.5rem;
+  }
+
+  blockquote {
+    font-size: 1.4rem;
+  }
+}
