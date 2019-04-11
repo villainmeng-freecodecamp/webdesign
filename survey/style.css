@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
+body {
+  background-color: #A1D2CB;
+  font-family: 'Raleway', Helvetica, sans-serif;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+main {
+  background-color: #F9F9F9;
+  border-radius: 4px;
+  margin: 8px auto;
+  max-width: 600px;
+  padding: 20px 48px;
+  width: 70%;
+  /* for IE support */
+  display: block;
+}
+
+.form-desc {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-button {
+  text-align: right;
+}
+
+.form-button>button {
+  background-color:  #59ace0;
+  border-radius: 0.5rem;
+  border-style: none;
+  color: white;
+  line-height: 1rem;
+  padding: 0.65rem 1.5rem;
+}
+
+.form-button>button:focus {
+  background-color:  #59c5e0;
+  font-size: 0.97rem;
+  outline: none;
+}
+
+.control-desc {
+  margin-bottom: 1rem;
+}
+
+.fieldset-desc {
+  display: none;
+}
+
+.input-string,
+select,
+textarea {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+.input-string,
+select,
+textarea,
+button,
+fieldset {
+  font-size: inherit;
+  padding: 0.4rem;
+}
+
+fieldset {
+  border: #a9a9a9 1px solid;
+  padding-bottom: 1rem;
+}
+
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+select:required:invalid {
+  color: #757575;
+}
+
+option {
+  color: black;
+}
+
+legend {
+  padding: 3px 6px;
+}
+
+@-moz-document url-prefix() {
+  .input-number {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+@media (min-width: 600px) {
+  .form-field {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .control-desc {
+    margin-bottom: 0;
+    margin-right: 1rem;
+    text-align: right;
+    width: 40%;
+  }
+
+  .fieldset-desc {
+    display: block;
+  }
+
+  .input-string,
+  select,
+  textarea,
+  fieldset {
+    width: 60%;
+  }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Survey form</title>
+</head>
+
+<body>
+  <header>
+    <h1 id="title">Survey Form</h1>
+  </header>
+  <main>
+    <p id="description" class="form-desc">Let us know how we can improve freeCodeCamp</p>
+    <form method="GET" id="survey-form">
+      <div class="form-field">
+        <label id="name-label" class="control-desc" for="name"><abbr title="required">*</abbr> Name:</label>
+        <input class="input-string" name="name" id="name" type="text" placeholder="Enter your name" required
+          autofocus />
+      </div>
+      <div class="form-field">
+        <label id="email-label" class="control-desc" for="email"><abbr title="required">*</abbr> Email:</label>
+        <input class="input-string" name="email" id="email" type="email" placeholder="Enter your Email" required />
+      </div>
+      <div class="form-field">
+        <label id="number-label" class="control-desc" for="number"><abbr title="required">*</abbr> Age:</label>
+        <input class="input-string input-number" name="age" id="number" type="number" min="18" max="118"
+          placeholder="Age" required />
+      </div>
+      <div class="form-field">
+        <label for="dropdown" class="control-desc"><abbr title="required">*</abbr> Which option best describes your
+          current role?</label>
+        <select name="role" id="dropdown" required>
+          <option value="" disabled selected hidden>Select your role</option>
+          <option value="student">Student</option>
+          <option value="job">Full Time Job</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="satisfied-set" class="control-desc fieldset-desc"></label>
+        <fieldset id="satisfied-set">
+          <legend>Is you satisfied</legend>
+          <input type="radio" name="satisfied" value="1" id="r1">
+          <label for="r1">Always</label>
+          <br>
+          <input type="radio" name="satisfied" value="0" id="r2">
+          <label for="r2">Sometimes</label>
+          <br>
+          <input type="radio" name="satisfied" value="-1" id="r3">
+          <label for="r3">None</label>
+        </fieldset>
+      </div>
+      <div class="form-field">
+        <label for="features-set" class="control-desc fieldset-desc"></label>
+        <fieldset id="features-set">
+          <legend>What feature you need</legend>
+          <input type="checkbox" name="feature1" value="1" id="ch1">
+          <label for="ch1">Chat</label>
+          <br>
+          <input type="checkbox" name="feature2" value="1" id="ch2">
+          <label for="ch2">Voting</label>
+          <br>
+          <input type="checkbox" name="feature3" value="1" id="ch3">
+          <label for="ch3">Comments</label>
+          <br>
+          <input type="checkbox" name="feature4" value="1" id="ch4">
+          <label for="ch4">Documentation</label>
+        </fieldset>
+      </div>
+      <div class="form-field">
+        <label id="notes-label" class="control-desc" for="notes">Suggestions:</label>
+        <textarea name="notes" id="notes" rows="5" placeholder="Write your suggestions..."></textarea>
+      </div>
+      <div class="form-button">
+        <button id="submit" type="submit">Submit</button>
+      </div>
+    </form>
+  </main>
+  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+</body>
+
+</html>
