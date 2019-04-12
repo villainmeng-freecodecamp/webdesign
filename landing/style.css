@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.title-image img {
+  width: 3rem;
+}
+
+.feature-icon {
+  display: none;
+}
+
+.fa-3x {
+  color: #fe8c00;
+}
+
+@media (min-width: 600px) {
+  #header {
+    flex-direction: row;
+  }
+
+  .feature-icon {
+    display: block;
+  }
+}

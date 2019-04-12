@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Standard Schnauzer</title>
+</head>
+
+<body>
+  <header id="header">
+    <div class="title">
+      <div class="title-image">
+        <img src="standard-schnauzer.png" alt="Logo" id="header-img">
+      </div>
+      <h1 class="title-caption">Standard Schnauzer</h1>
+    </div>
+    <nav class="page-nav" id="nav-bar">
+      <ul class="page-nav-list">
+        <li class="page-nav-list__item"><a class="nav-link" href="#home">Menu item 1</a></li>
+        <li class="page-nav-list__item"><a class="nav-link" href="#features">Menu item 2</a></li>
+        <li class="page-nav-list__item"><a class="nav-link" href="#usage">Menu item 3</a></li>
+        <li class="page-nav-list__item"><a class="nav-link" href="#prices">Menu item 4</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="home">
+      <h1 class="home-caption">Product desc</h1>
+      <form action="https://www.freecodecamp.com/email-submit" method="get" target="_blank" id="form">
+        <div class="home-email">
+          <label for="email"></label>
+          <input type="email" name="email" placeholder="Enter your email address" id="email" required>
+        </div>
+        <div class="home-submit">
+          <input type="submit" value="Go" id="submit">
+        </div>
+      </form>
+    </section>
+    <section id="features">
+      <div class="feature">
+        <div class="feature-icon"><i class="far fa-address-book fa-3x"></i></div>
+        <div class="feature-text">
+          <h2>Feature 1</h2>
+          <p>Feature 1 description</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><i class="fab fa-apple fa-3x"></i></div>
+        <div class="feature-text">
+          <h2>Feature 2</h2>
+          <p>Feature 2 description</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><i class="fas fa-camera-retro fa-3x"></i></div>
+        <div class="feature-text">
+          <h2>Feature 3</h2>
+          <p>Feature 3 description</p>
+        </div>
+      </div>
+    </section>
+    <section id="usage">
+      <video controls id="video">
+        <source src="standard-schnauzer.webm" type="video/webm">
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+    </section>
+    <section id="prices">
+      prices
+    </section>
+  </main>
+  <footer>
+    <nav class="external-nav">
+      <ul class="external-nav-list">
+        <li class="external-nav-list-item"><a href="#">External link 1</a></li>
+        <li class="external-nav-list-item"><a href="#">External link 2</a></li>
+        <li class="external-nav-list-item"><a href="#">External link 3</a></li>
+      </ul>
+    </nav>
+    <div class="copyright">
+      <p class="copyright-info">Company &copy; 2019</p>
+    </div>
+  </footer>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
