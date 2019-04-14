@@ -16,7 +16,7 @@ body {
   align-items: center;
 }
 
-.title-image img {
+.title-image > img {
   width: 3rem;
 }
 
