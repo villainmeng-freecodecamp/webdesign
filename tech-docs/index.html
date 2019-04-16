@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Events | Node.js v10.15.3 Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav id="navbar">
+    <header class="navbar-caption">Node.js Events</header>
+    <ul class="navbar-items">
+      <li class="navbar-item"><a href="#Passing_arguments" class="nav-link">Passing arguments</a></li>
+      <li class="navbar-item"><a href="#Asynchronous_vs_Synchronous" class="nav-link">Asynchronous vs Synchronous</a></li>
+      <li class="navbar-item"><a href="#Event_newListener" class="nav-link">Event newListener</a></li>
+      <li class="navbar-item"><a href="#emitter_emit" class="nav-link">emitter emit</a></li>
+      <li class="navbar-item"><a href="#emitter_removeListener" class="nav-link">emitter removeListener</a></li>
+      <li class="navbar-item"><a href="#emitter_setMaxListeners" class="nav-link">emitter setMaxListeners</a></li>
+      <li class="navbar-item"><a href="#emitter_prependListener" class="nav-link">emitter prependListener</a></li>
+      <li class="navbar-item"><a href="#emitter_once" class="nav-link">emitter once</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-doc">
+
+    <section class="main-section" id="Passing_arguments">
+      <header>
+        <h2>Passing arguments</h2>
+      </header>
+
+      <article>
+        <p>The eventEmitter.emit() method allows an arbitrary set of arguments to be passed to the listener functions. It is important to keep in mind that when an ordinary listener function is called, the standard this keyword is intentionally set to reference the EventEmitter instance to which the listener is attached.</p>
+        <code>
+          <pre>const myEmitter = new MyEmitter();
+myEmitter.on('event', function(a, b) {
+  console.log(a, b, this, this === myEmitter);
+  // Prints:
+  // a b MyEmitter {
+  // domain: null,
+  // _events: { event: [Function] },
+  // _eventsCount: 1,
+  // _maxListeners: undefined } true
+});
+myEmitter.emit('event', 'a', 'b');</pre>
+        </code>
+        <p>It is possible to use ES6 Arrow Functions as listeners, however, when doing so, the this keyword will no longer reference the EventEmitter instance:</p>
+        <code>
+          <pre>const myEmitter = new MyEmitter();
+myEmitter.on('event', (a, b) => {
+  console.log(a, b, this);
+  // Prints: a b {}
+});
+myEmitter.emit('event', 'a', 'b');</pre>
+        </code>
+      </article>
+    </section>
+
+    <section class="main-section" id="Asynchronous_vs_Synchronous">
+      <header>
+        <h2>Asynchronous vs Synchronous</h2>
+      </header>
+
+      <article>
+        <p>The EventEmitter calls all listeners synchronously in the order in which they were registered. This is important to ensure the proper sequencing of events and to avoid race conditions or logic errors. When appropriate, listener functions can switch to an asynchronous mode of operation using the setImmediate() or process.nextTick() methods:</p>
+        <code>
+          <pre>const myEmitter = new MyEmitter();
+myEmitter.on('event', (a, b) => {
+  setImmediate(() => {
+    console.log('this happens asynchronously');
+  });
+});
+myEmitter.emit('event', 'a', 'b');</pre>
+        </code>
+      </article>
+    </section>
+
+    <section class="main-section" id="Event_newListener">
+      <header>
+        <h2>Event newListener</h2>
+      </header>
+
+      <article>
+        <ul>
+          <li>eventName &lt;string&gt; | &lt;symbol&gt; The name of the event being listened for</li>
+          <li>listener &lt;Function&gt; The event handler function</li>
+        </ul>
+        <p>The EventEmitter instance will emit its own 'newListener' event before a listener is added to its internal array of listeners.</p>
+        <p>Listeners registered for the 'newListener' event will be passed the event name and a reference to the listener being added.
+        </p>
+        <p>The fact that the event is triggered before adding the listener has a subtle but important side effect: any additional listeners registered to the same name within the 'newListener' callback will be inserted before the listener that is in the process of being added.</p>
+        <code>
+          <pre>const myEmitter = new MyEmitter();
+// Only do this once so we don't loop forever
+myEmitter.once('newListener', (event, listener) => {
+  if (event === 'event') {
+    // Insert a new listener in front
+    myEmitter.on('event', () => {
+      console.log('B');
+    });
+  }
+});
+myEmitter.on('event', () => {
+  console.log('A');
+});
+myEmitter.emit('event');
+// Prints:
+//   B
+//   A</pre>
+        </code>
+      </article>
+    </section>
+
+    <section class="main-section" id="emitter_emit">
+      <header>
+        <h2>emitter emit</h2>
+      </header>
+
+      <article>
+        <ul>
+          <li>eventName &lt;string&gt; | &lt;symbol&gt;</li>
+          <li>...args &lt;any&gt;</li>
+          <li>Returns: &lt;boolean&gt;</li>
+        </ul>
+        <p>Synchronously calls each of the listeners registered for the event named eventName, in the order they were registered, passing the supplied arguments to each.</p>
+        <p>Returns true if the event had listeners, false otherwise.</p>
+      </article>
+    </section>
+
+    <section class="main-section" id="emitter_removeListener">
+      <header>
+        <h2>emitter removeListener</h2>
+      </header>
+
+      <article>
+        <p>Removes the specified listener from the listener array for the event named eventName.</p>
+        <code>
+          <pre>const callback = (stream) => {
+  console.log('someone connected!');
+};
+server.on('connection', callback);
+// ...
+server.removeListener('connection', callback);</pre>
+        </code>
+        <p>removeListener() will remove, at most, one instance of a listener from the listener array. If any single listener has been added multiple times to the listener array for the specified eventName, then removeListener() must be called multiple times to remove each instance.</p>
+        <p>Note that once an event has been emitted, all listeners attached to it at the time of emitting will be called in order. This implies that any removeListener() or removeAllListeners() calls after emitting and before the last listener finishes execution will not remove them from emit() in progress. Subsequent events will behave as expected.</p>
+        <code>
+          <pre>const myEmitter = new MyEmitter();
+
+const callbackA = () => {
+  console.log('A');
+  myEmitter.removeListener('event', callbackB);
+};
+
+const callbackB = () => {
+  console.log('B');
+};
+
+myEmitter.on('event', callbackA);
+
+myEmitter.on('event', callbackB);
+
+// callbackA removes listener callbackB but it will still be called.
+// Internal listener array at time of emit [callbackA, callbackB]
+myEmitter.emit('event');
+// Prints:
+//   A
+//   B
+
+// callbackB is now removed.
+// Internal listener array [callbackA]
+myEmitter.emit('event');
+// Prints:
+//   A</pre>
+        </code>
+        <p>Because listeners are managed using an internal array, calling this will change the position indices of any listener registered after the listener being removed. This will not impact the order in which listeners are called, but it means that any copies of the listener array as returned by the emitter.listeners() method will need to be recreated.</p>
+        <p>When a single function has been added as a handler multiple times for a single event (as in the example below), removeListener() will remove the most recently added instance. In the example the once('ping') listener is removed:</p>
+        <code>
+          <pre>const ee = new EventEmitter();
+
+function pong() {
+  console.log('pong');
+}
+
+ee.on('ping', pong);
+ee.once('ping', pong);
+ee.removeListener('ping', pong);
+
+ee.emit('ping');
+ee.emit('ping');</pre>
+        </code>
+        <p>Returns a reference to the EventEmitter, so that calls can be chained.</p>
+      </article>
+    </section>
+
+    <section class="main-section" id="emitter_setMaxListeners">
+      <header>
+        <h2>emitter setMaxListeners</h2>
+      </header>
+
+      <article>
+        <p>By default EventEmitters will print a warning if more than 10 listeners are added for a particular event. This is a useful default that helps finding memory leaks. Obviously, not all events should be limited to just 10 listeners. The emitter.setMaxListeners() method allows the limit to be modified for this specific EventEmitter instance. The value can be set to Infinity (or 0) to indicate an unlimited number of listeners.</p>
+        <p>Returns a reference to the EventEmitter, so that calls can be chained.</p>
+      </article>
+    </section>
+
+    <section class="main-section" id="emitter_prependListener">
+      <header>
+        <h2>emitter prependListener</h2>
+      </header>
+
+      <article>
+        <p>Adds the listener function to the beginning of the listeners array for the event named eventName. No checks are made to see if the listener has already been added. Multiple calls passing the same combination of eventName and listener will result in the listener being added, and called, multiple times.</p>
+      </article>
+    </section>
+
+    <section class="main-section" id="emitter_once">
+      <header>
+        <h2>emitter once</h2>
+      </header>
+
+      <article>
+        <p>Adds a one-time listener function for the event named eventName. The next time eventName is triggered, this listener is removed and then invoked.</p>
+        <p>Returns a reference to the EventEmitter, so that calls can be chained.</p>
+        <p>By default, event listeners are invoked in the order they are added. The emitter.prependOnceListener() method can be used as an alternative to add the event listener to the beginning of the listeners array.</p>
+      </article>
+    </section>
+  </main>
+  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+</body>
+</html>
