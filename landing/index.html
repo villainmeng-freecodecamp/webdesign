@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Standard Schnauzer</title>
 </head>
@@ -16,14 +17,14 @@
       <div class="title-image">
         <img src="standard-schnauzer.png" alt="Logo" id="header-img">
       </div>
-      <h1 class="title-caption">Standard Schnauzer</h1>
+      <p class="title-caption">Standard Schnauzer</p>
     </div>
     <nav class="page-nav" id="nav-bar">
       <ul class="page-nav-list">
-        <li class="page-nav-list__item"><a class="nav-link" href="#home">Menu item 1</a></li>
-        <li class="page-nav-list__item"><a class="nav-link" href="#features">Menu item 2</a></li>
-        <li class="page-nav-list__item"><a class="nav-link" href="#usage">Menu item 3</a></li>
-        <li class="page-nav-list__item"><a class="nav-link" href="#prices">Menu item 4</a></li>
+        <li class="page-nav-list__item"><a class="nav-link" href="#home-anchor">Home</a></li>
+        <li class="page-nav-list__item"><a class="nav-link" href="#features-anchor">Features</a></li>
+        <li class="page-nav-list__item"><a class="nav-link" href="#demonstration-anchor">Video</a></li>
+        <li class="page-nav-list__item"><a class="nav-link" href="#prices-anchor">Price</a></li>
       </ul>
     </nav>
   </header>
@@ -31,43 +32,46 @@
   <main>
 
     <section id="home">
-      <h1 class="home-caption">Product desc</h1>
-      <form action="https://www.freecodecamp.com/email-submit" method="get" target="_blank" id="form">
+      <a class="anchor" id="home-anchor"></a>
+      <h1 class="home-caption">Fearless, Smart, Spirited Friend</h1>
+      <form id="form" action="https://www.freecodecamp.com/email-submit" method="get" target="_blank">
         <div class="home-email">
           <label for="email"></label>
           <input type="email" name="email" placeholder="Enter your email address" id="email" required>
         </div>
         <div class="home-submit">
-          <input type="submit" value="Go" id="submit">
+          <input class="btn" type="submit" value="Get Started" id="submit">
         </div>
       </form>
     </section>
 
     <section id="features">
+      <a class="anchor" id="features-anchor"></a>
       <div class="feature">
-        <div class="feature-icon"><i class="far fa-address-book fa-3x"></i></div>
+        <div class="feature-icon"><i class="fas fa-home fa-3x"></i></div>
         <div class="feature-text">
-          <h2>Feature 1</h2>
-          <p>Feature 1 description</p>
+          <h2>Purpose</h2>
+          <p>Generally classified as a working or utility dog, this versatile breed is robust, squarely built, medium-sized dog with aristocratic bearing.</p>
         </div>
       </div>
       <div class="feature">
-        <div class="feature-icon"><i class="fab fa-apple fa-3x"></i></div>
+        <div class="feature-icon"><i class="fas fa-paw fa-3x"></i></div>
         <div class="feature-text">
-          <h2>Feature 2</h2>
-          <p>Feature 2 description</p>
+          <h2>Genesis</h2>
+          <p>The Standard Schnauzer (Mittelschnauzer) is a dog breed that originated in Germany from at least 14th-15th century, of Schnauzer breed type and progenitor of the Giant Schnauzer and Miniature Schnauzer.</p>
         </div>
       </div>
       <div class="feature">
-        <div class="feature-icon"><i class="fas fa-camera-retro fa-3x"></i></div>
+        <div class="feature-icon"><i class="fas fa-dog fa-3x"></i></div>
         <div class="feature-text">
-          <h2>Feature 3</h2>
-          <p>Feature 3 description</p>
+          <h2>Appearance</h2>
+          <p>Distinguished by their long beards and eyebrows, Standard Schnauzers are always pepper and salt or less commonly black in color, with a stiff and wiry hair coat on the body similar to that of other wirehaired breeds.</p>
         </div>
       </div>
     </section>
 
-    <section id="usage">
+    <section id="demonstration">
+      <a class="anchor" id="demonstration-anchor"></a>
       <video controls id="video">
         <source src="standard-schnauzer.webm" type="video/webm">
         Sorry, your browser doesn't support embedded videos.
@@ -75,20 +79,49 @@
     </section>
 
     <section id="prices">
-      prices
+      <a class="anchor" id="prices-anchor"></a>
+      <div class="price-item">
+        <h2>Mittelschnauzer</h2>
+        <h3>$600</h3>
+        <p>Lorem ipsum.</p>
+        <p>Dolor sit amet.</p>
+        <p>Consectetur adipisicing elit.</p>
+        <p>Est autem.</p>
+        <button class="btn">Select</button>
+      </div>
+      <div class="price-item">
+        <h2>Miniature Schnauzer</h2>
+        <h3>$900</h3>
+        <p>Mollitia sint.</p>
+        <p>Itaque earum nihil.</p>
+        <p>Cupiditate aspernatur.</p>
+        <p>Eius dignissimos corrupti.</p>
+        <button class="btn">Select</button>
+      </div>
+      <div class="price-item">
+        <h2>Giant Schnauzer</h2>
+        <h3>$1200</h3>
+        <p>Deserunt qui illo quibusdam.</p>
+        <p>Tenetur placeat.</p>
+        <p>Beatae optio repudiandae.</p>
+        <p>Quod voluptas quo.</p>
+        <button class="btn">Select</button>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <nav class="external-nav">
-      <ul class="external-nav-list">
-        <li class="external-nav-list-item"><a href="#">External link 1</a></li>
-        <li class="external-nav-list-item"><a href="#">External link 2</a></li>
-        <li class="external-nav-list-item"><a href="#">External link 3</a></li>
-      </ul>
-    </nav>
-    <div class="copyright">
-      <p class="copyright-info">Company &copy; 2019</p>
+  <footer id="links">
+    <div class="links-container">
+      <nav class="external-nav">
+        <ul class="external-nav-list">
+          <li class="external-nav-list-item"><a href="https://en.wikipedia.org/wiki/Standard_Schnauzer" target="_blank">Wikipedia</a></li>
+          <li class="external-nav-list-item"><a href="https://www.akc.org/dog-breeds/standard-schnauzer/" target="_blank">American Kennel Club</a></li>
+          <li class="external-nav-list-item"><a href="http://www.standardschnauzer.org/" target="_blank">Standard Schnauzer Club of America</a></li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        <p class="copyright-info">Copyright &copy; 2019, Dmitrij Sukach</p>
+      </div>
     </div>
   </footer>
   <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
