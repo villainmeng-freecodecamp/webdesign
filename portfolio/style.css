@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e0ebe8;
+  color: #008080;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+img {
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -3.375rem;
+  visibility: hidden;
+}
+
+header {
+  background-color: inherit;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.nav-item {
+  padding: 0 1rem;
+}
+
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: green;
+}
+
+#welcome-section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+#welcome-section > h1 {
+  color: black;
+  font-size: 2rem;
+}
+
+#welcome-section > p {
+  color: green;
+}
+
+#projects {
+  background-color: #fff;
+  padding: 2.5rem 0;
+}
+
+#projects > h2 {
+  font-weight: normal;
+}
+
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-tile {
+  border: 2px solid lightblue;
+  margin: 2rem 6rem;
+}
+
+.project-tile > a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.project-image {
+  height: 150px;
+}
+
+img {
+  height: 100%;
+}
+
+.project-tile > a > figure > figcaption {
+  border-top: 2px solid lightblue;
+  padding: 0.5rem;
+}
+
+.link-btn {
+  background-color: #e0ebe8;
+  border: 2px solid #90c695;
+  border-radius: 0.25rem;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  margin: 2rem 4rem;
+  min-width: 7rem;
+  width: 7rem;
+}
+
+.link-btn:hover,
+.link-btn:active {
+  background-color: #e4f1fe;
+}
+
+.profile-btn {
+  padding: 0.5rem 4rem;
+  margin: 3rem 0;
+  width: 15rem;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+  color: green;
+}
+
+#contacts {
+  background-color: #c8f7c5;
+  padding: 6rem 0;
+}
+
+#contacts > h2 {
+  color: black;
+  font-size: 2rem;
+  margin: 6rem 0;
+}
+
+.contacts-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer {
+  background-color: #22313e;
+  color: white;
+  margin-bottom: 0;
+}
+
+footer > p {
+  line-height: 4rem;
+  margin: 0;
+}
+
+@media (min-width: 400px) {
+  .link-btn {
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    height: 7rem;
+  }
+
+  .profile-btn {
+    border-radius: 0.25rem;
+    display: inline-block;
+    height: auto;
+  }
+}
